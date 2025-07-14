@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.8.1/github-markdown-light.css" integrity="sha512-CxC9MO8FBaaq8vl9yaXHjgWd7uXqx3pWMSBP3daioTTI0gpXijlypuMV67NoE1bPYMzj7ZSNNS0o+jFFdFodgA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link href="/assets/css/style.css" rel="stylesheet" />
 
+<div class="main">
 # 自律的情報技術学習演習：作業の記録 Day-1〜中間課題
 
 ## これは何
@@ -464,3 +465,5 @@ EC2がいわゆるさくらのサーバーと同様Webサーバーのひとつ�
 完全プライベート型、マルチブラウザ同期可能なTwitterライクのアプリ作成。md + pdfもしくはjsonファイルエクスポート可能で、できれば画像アップにも対応させたい
 
 Vercel + Next.js + Firebase + S3 での作成を計画中。ついでにGitHub Actionsで自動化もさせたい(できれば)
+
+</div>
