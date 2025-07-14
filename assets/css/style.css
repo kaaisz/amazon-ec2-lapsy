@@ -1120,9 +1120,17 @@ pre, code {
     overflow-x: auto;
 }
 
-aside {
+.markdown-body aside {
     background-color: rgba(248, 248, 247, 1);
     padding: 16px
+}
+
+.markdown-body aside ul {
+    list-style: none;
+}
+
+.markdown-body aside ul li {
+    color: #555;
 }
 
 img {
