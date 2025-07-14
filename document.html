@@ -1,0 +1,741 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>自律的情報技術学習演習：作業の記録 Day-1</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="22e4cd39-57d3-8065-b8e4-cecbee340220" class="page sans"><header><h1 class="page-title">自律的情報技術学習演習：作業の記録 Day-1</h1><p class="page-description"></p></header><div class="page-body"><h2 id="22e4cd39-57d3-80ed-9e52-d80b52ba6836" class="">これは何</h2><p id="22e4cd39-57d3-80ad-aad0-f9102fdc2af5" class="">ムサビ通信「自律的情報技術学習演習」の授業内で、Amazon EC2サーバを使用したドキュメントのアップロードを行った際の記録です</p><p id="22e4cd39-57d3-809d-9919-c025902db0fd" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="22e4cd39-57d3-8025-848b-f9cc8e821322"><div style="font-size:1.5em"><span class="icon">🔖</span></div><div style="width:100%"><p id="22e4cd39-57d3-80fd-bfa2-f45d7e9cc517" class="">目次</p><nav id="22e4cd39-57d3-8094-8c91-f3ee5c6641b5" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#22e4cd39-57d3-80ed-9e52-d80b52ba6836">これは何</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#22e4cd39-57d3-8067-a4d1-e4dc6c24d534">今回よく使用したコマンド</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#22e4cd39-57d3-8038-9db3-e0fa9d178163">サーバーログイン/ログアウト</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#22e4cd39-57d3-8088-8f90-c5a62108444f">サーバーへのアップロード(ローカルから実行)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#22e4cd39-57d3-80fa-8719-fd1fe5beb7cf">サーバー上ファイルの削除</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#22e4cd39-57d3-80c6-b0c8-cb9c2ab1802c">サーバー上ファイルの移動</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#22e4cd39-57d3-80ef-a43f-e46825986385">1. AWS アカウント登録 - root user</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#22e4cd39-57d3-8003-9eda-c5f50a98c1c1">2. EC2ユーザー登録</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#22e4cd39-57d3-80f0-bcd6-e4bbf4df846c">3. ターミナル操作</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#22e4cd39-57d3-80bd-954b-faee902c7ae5">4. EC2にアップ</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#22e4cd39-57d3-8006-bb7e-fd23c0c514dc">5. EC2サーバにSSH接続して確認</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#22e4cd39-57d3-800b-b3c0-ce3935118477">6. HTML化〜アップロード</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#22e4cd39-57d3-8096-a8dd-c6a37674dd7f">7. 画像のアップロード</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#22e4cd39-57d3-8025-9dde-fa770c41a256">結局Notion fileをエクスポートしたものをアップした</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#22e4cd39-57d3-8070-a025-ef73f9aed11c">振り返り、まとめ、気づき</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#22e4cd39-57d3-8011-8021-e16cffff15c3">次のステップ</a></div></nav></div></figure><p id="22e4cd39-57d3-8031-9e48-e96464a067bb" class="">
+</p><h2 id="22e4cd39-57d3-8067-a4d1-e4dc6c24d534" class="">今回よく使用したコマンド</h2><p id="22e4cd39-57d3-8087-8669-f3c7f7a617c9" class="">
+</p><p id="22e4cd39-57d3-805a-b66c-ea8c7a40f461" class="">ミス防止のためフルパス指定</p><p id="22e4cd39-57d3-80a6-ac7e-de6838c06e63" class="">
+</p><h3 id="22e4cd39-57d3-8038-9db3-e0fa9d178163" class="">サーバーログイン/ログアウト</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-8092-aaf2-e288f1d3b89a" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">ssh -i /Users/kaaisuzuki/Downloads/workspace/amazon-ec2-lapsy/my-key.pem ec2-user@ec2-11-22-33-44.ap-northeast-1.compute.amazonaws.com</code></pre><h3 id="22e4cd39-57d3-8088-8f90-c5a62108444f" class="">サーバーへのアップロード(ローカルから実行)</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-80f0-b950-f47a1d3143ba" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">scp -i /Users/kaaisuzuki/Downloads/workspace/amazon-ec2-lapsy/my-key.pem {file-name} ec2-user@ec2-11-22-33-44.ap-northeast-1.compute.amazonaws.com:/home/ec2-user/</code></pre><p id="22e4cd39-57d3-80b8-9282-ce37e925e3a6" class=""><code>-r</code> で既存ファイルおよびディレクトリのReplace</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-80b4-8735-dff5b97beb11" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">scp -i /Users/kaaisuzuki/Downloads/workspace/amazon-ec2-lapsy/my-key.pem -r {file-name} ec2-user@ec2-11-22-33-44.ap-northeast-1.compute.amazonaws.com:/home/ec2-user/</code></pre><h3 id="22e4cd39-57d3-80fa-8719-fd1fe5beb7cf" class="">サーバー上ファイルの削除</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-80c7-826c-f05989d57c86" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">sudo rm -rf /var/www/html/{target file or directory}</code></pre><h3 id="22e4cd39-57d3-80c6-b0c8-cb9c2ab1802c" class="">サーバー上ファイルの移動</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-8087-b249-f42edf5d03d7" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">sudo mv /home/ec2-user/{target file}(ターゲット) /var/www/html/(移動先)</code></pre><p id="22e4cd39-57d3-8041-ba9d-e8fe0a71ccb2" class="">
+</p><p id="22e4cd39-57d3-8050-9506-e962e3ef33da" class=""><strong>以下、タイトル横の▶️をクリックで内容を開閉</strong></p><p id="22e4cd39-57d3-8010-8cd6-f4e3b4dbdc39" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">1. AWS アカウント登録 - root user</summary><div class="indented"><h3 id="22e4cd39-57d3-80be-9bcb-d2a543a73072" class="">💡 Tip: GCPを選択した場合</h3><p id="22e4cd39-57d3-8099-9f29-c52bca7bb7e6" class="">AWSではなくGCPを選択した場合、GCPは基本的にGメールなどのGoogleアカウントがあればコンソールに入ることは可能（カードの登録などは必要）<br/>「ようこそ」のコンソール画面が表示されれば問題ない<br/></p><p id="22e4cd39-57d3-8048-a512-d38b87499ecf" class="">
+</p><ol type="1" id="22e4cd39-57d3-80d2-93b0-d0167ad35230" class="numbered-list" start="1"><li>Googleからリンクにアクセス：<a href="https://aws.amazon.com/jp/free/?all-free-tier.sort-by=item.additionalFields.SortRank&amp;all-free-tier.sort-order=asc&amp;awsf.Free%20Tier%20Types=*all&amp;awsf.Free%20Tier%20Categories=*all">Amazon AWS無料利用枠</a> または <a href="https://aws.amazon.com/jp/ec2/">Amazon AWS EC2無料トライアル</a></li></ol><ol type="1" id="22e4cd39-57d3-80b1-9904-f9d1fbccba8c" class="numbered-list" start="2"><li>「無料でAWSを開始」を押下<ol type="a" id="22e4cd39-57d3-80ee-bad6-c7db00f363f9" class="numbered-list" start="1"><li>ログイン済みの場合はコンソール画面に誘導されるので、6へ</li></ol><ol type="a" id="22e4cd39-57d3-80c0-9241-fac17671c168" class="numbered-list" start="2"><li>未ログインの場合は3へ</li></ol></li></ol><ol type="1" id="22e4cd39-57d3-804c-8bf5-ea67a50ec3c2" class="numbered-list" start="3"><li>メールアドレスの登録<figure id="22e4cd39-57d3-80c9-9f87-e972040fc715" class="image"><a href="assets/img/image.png"><img style="width:432px" src="assets/img/image.png"/></a></figure></li></ol><ol type="1" id="22e4cd39-57d3-8065-b994-c8e3b5866db3" class="numbered-list" start="4"><li>認証を求められるので、画面に表示される文字のタイピングを行い、SMSを通して認証</li></ol><ol type="1" id="22e4cd39-57d3-80e9-b212-da47466cb397" class="numbered-list" start="5"><li>住所、請求情報を求められるので、それぞれ登録して完了</li></ol><ol type="1" id="22e4cd39-57d3-8037-8b3d-eeb113bab330" class="numbered-list" start="6"><li>無事に登録が済むとコンソール画面に移動<figure id="22e4cd39-57d3-8016-ab12-f5bf11db8c90" class="image"><a href="assets/img/image%201.png"><img style="width:432px" src="assets/img/image%201.png"/></a></figure></li></ol><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="22e4cd39-57d3-80df-ba3c-e542e4e1284e"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><h3 id="22e4cd39-57d3-80be-8807-dfad0679d8d0" class="">トラブルシューティング</h3><ul id="22e4cd39-57d3-801f-b8e7-e06425273609" class="bulleted-list"><li style="list-style-type:disc">Q: <br/>登録地は日本なのに入力がアメリカから切り替えできない<br/></li></ul><ul id="22e4cd39-57d3-8085-9e8e-e39be42f61c7" class="bulleted-list"><li style="list-style-type:disc">A: <p id="22e4cd39-57d3-8045-bf27-e8a54e00c5e3" class="">背景</p><ul id="22e4cd39-57d3-80c5-b10b-cef58d8dcf8e" class="bulleted-list"><li style="list-style-type:circle">同時刻に多数のユーザー → AWS地域判定API負荷 →<br/>処理遅延 → デフォルト値（US）返却 →<br/>全員にアメリカが表示　という感じで起こり得るらしい (via Claude Sonnet)<br/></li></ul><p id="22e4cd39-57d3-802a-8907-c39352196fb5" class="">対応策</p><ul id="22e4cd39-57d3-80d5-b78a-fbe8dfc80954" class="bulleted-list"><li style="list-style-type:circle">シークレットウインドウで新しいメールアドレスを試してみる<ul id="22e4cd39-57d3-8001-85e8-e4483aecc304" class="bulleted-list"><li style="list-style-type:square">シークレットウィンドウのショートカット<br/>Mac: Command + Shift + N<br/>Win: Ctrl + Shift + N<br/></li></ul></li></ul><ul id="22e4cd39-57d3-8038-be79-fa13eaba2726" class="bulleted-list"><li style="list-style-type:circle">①Chromeなら「シークレットウィンドウ」でアクセスしてみる<br/>②SafariやEdgeなど、別のブラウザで試す - MacだとSafariが推奨されることがある<br/></li></ul></li></ul></div></figure></div></details><p id="22e4cd39-57d3-80a4-a204-dca568ab9478" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">2. EC2ユーザー登録</summary><div class="indented"><p id="22e4cd39-57d3-80f7-bb35-d11b0e8d8b27" class="">EC2とは、仮想のコンピュータを1分単位で借りれるサービス</p><ol type="1" id="22e4cd39-57d3-80b4-92ed-faa609afcbd0" class="numbered-list" start="1"><li>Recently visited の画面にあるEC2をクリック<figure id="22e4cd39-57d3-808c-97cf-c7b4cbdc357e" class="image"><a href="assets/img/image4.png"><img style="width:432px" src="assets/img/image4.png"/></a></figure></li></ol><ol type="1" id="22e4cd39-57d3-8020-b9b8-ebadb14463cd" class="numbered-list" start="2"><li>インスタンスを起動を押す</li></ol><ol type="1" id="22e4cd39-57d3-80b0-bd4c-cd397493afb7" class="numbered-list" start="3"><li>名前を入力</li></ol><ol type="1" id="22e4cd39-57d3-80e6-af70-e12957408dc9" class="numbered-list" start="4"><li>Amazon Linux, インスタンスタイプ：t2microを選択<p id="22e4cd39-57d3-80f6-a2f1-d8895de88c0b" class="">※無料枠外でメモリの容量も自分の用途に合わせて選択可能</p></li></ol><ol type="1" id="22e4cd39-57d3-80a5-9927-ee515e1fc051" class="numbered-list" start="5"><li>新しいキーペアの作成でキーペアを作成<p id="22e4cd39-57d3-80b6-87e8-dcc449ec949f" class="">自分でクラウドサービスを作成するにあたっては、サーバーのインスタンス = 仮想サーバーの数(要素)の作成 が必要</p><p id="22e4cd39-57d3-8067-a993-ee2376ad9447" class="">拡張子は.pem で、SSH接続のものでOK</p></li></ol><ol type="1" id="22e4cd39-57d3-8087-85b4-cf91cc9625b0" class="numbered-list" start="6"><li>SSHに加えて、HTTPトラフィックを許可する<p id="22e4cd39-57d3-8005-9045-fbf2837aeb24" class="">0.0.0.0/0 と指定がある場合、世界のどこからでも作成可能</p></li></ol><ol type="1" id="22e4cd39-57d3-80e5-8c1e-cfb03ccf8260" class="numbered-list" start="7"><li>ストレージは30gbまで無料、8GB以上推奨</li></ol><ol type="1" id="22e4cd39-57d3-80e1-813f-f3fb84474ec5" class="numbered-list" start="8"><li>Launch Instanceを押すと、生成される<br/>完了するとこのパネルが表示 ↓<br/><figure id="22e4cd39-57d3-80b6-bb9b-ea355c1b2135" class="image"><a href="assets/img/Screenshot_2025-07-12_at_2.39.19_PM.png"><img style="width:432px" src="assets/img/Screenshot_2025-07-12_at_2.39.19_PM.png"/></a></figure></li></ol><ol type="1" id="22e4cd39-57d3-8019-8d64-c55447464721" class="numbered-list" start="9"><li>上記画像グレーの塗りつぶし部分がリンクになっているので、遷移</li></ol><ol type="1" id="22e4cd39-57d3-80e8-855a-f58cd3a4561c" class="numbered-list" start="10"><li>パブリックIPv4アドレスをコピー<figure id="22e4cd39-57d3-80be-b530-ca160e55e23f" class="image"><a href="assets/img/image%202.png"><img style="width:654.013671875px" src="assets/img/image%202.png"/></a></figure></li></ol><p id="22e4cd39-57d3-80de-a595-eb7cb7c4a5b5" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="22e4cd39-57d3-8073-b10a-d45c449b276a"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><h3 id="22e4cd39-57d3-80fd-becf-cf4e0c01f8f2" class="">ポイント：ストレージ容量の継ぎ足しは可能だが、後からは減らせない</h3><p id="22e4cd39-57d3-80f4-995f-c964e530eab1" class="">○ 8GBからスタートして、16GBに継ぎ足しは可能</p><p id="22e4cd39-57d3-802c-8424-c3bfa5827bbb" class="">× 16GBからスタートして、8GBへの減量は不可能</p></div></figure></div></details><p id="22e4cd39-57d3-8034-97de-e06ac04a3845" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">3. ターミナル操作</summary><div class="indented"><ol type="1" id="22e4cd39-57d3-80ef-92d1-dc48fd57d745" class="numbered-list" start="1"><li>ssh接続する / 解除する</li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-80f5-9077-f85fd564896a" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">ssh -i your/path/keypair.pem ec2-user@YOUR_IP_ADDRESS</code></pre><ol type="1" id="22e4cd39-57d3-8018-9ca9-d85b30633540" class="numbered-list" start="2"><li>そのまま接続を試みると、このような画面が表示</li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-80e7-aa07-eba84543d7f5" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">The authenticity of host &#x27;3.25.246.191 (3.25.246.191)&#x27; can&#x27;t be established.
+ED25519 key fingerprint is SHA256:bSr8n+gZI1MMAEGUwfyOtldemGN173UcPuFHkEIetT0.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?</code></pre><ol type="1" id="22e4cd39-57d3-8049-be97-d20353ce792a" class="numbered-list" start="3"><li>yesとタイプすると、以下のようにパーミッション権限を求められる</li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-804f-aca9-d4cdceb02211" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">Warning: Permanently added &#x27;3.25.246.191&#x27; (ED25519) to the list of known hosts.
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions 0644 for &#x27;/Users/kaaisuzuki/Downloads/workspace/amazon-ec2-test/lapsy.pem&#x27; are too open.
+It is required that your private key files are NOT accessible by others.
+This private key will be ignored.
+Load key &quot;/Users/kaaisuzuki/Downloads/workspace/amazon-ec2-test/lapsy.pem&quot;: bad permissions
+ec2-user@3.25.246.191: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).</code></pre><ol type="1" id="22e4cd39-57d3-8060-851c-c1dcf598cdfd" class="numbered-list" start="4"><li>そのため、以下のコマンドでパーミッション権限を変更</li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-80ca-b589-ff93d1cec296" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">chmod 600 /Users/kaaisuzuki/Downloads/workspace/amazon-ec2-test/lapsy.pem</code></pre><ol type="1" id="22e4cd39-57d3-8002-9adc-e58fbd38a1df" class="numbered-list" start="5"><li>もう一度1. のコマンドを実行。<br/>以下のような結果が返ってくれば成功<br/></li></ol><figure class="block-color-orange_background callout" style="white-space:pre-wrap;display:flex" id="22e4cd39-57d3-800a-8c4e-e30f0079516e"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><p id="22e4cd39-57d3-8014-8b99-ee2515506d65" class="">これがログイン成功の合図なので今後も頻繁に出てくる。以下、ログイン成功 = 🦅 として表示</p></div></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-80cb-a688-f95126e01e71" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~&#x27; &#x27;-&gt;
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/&#x27;
+[ec2-user@ip-172-31-7-109 ~]$</code></pre></div></details><p id="22e4cd39-57d3-80f1-b8a6-dd1aa0c657f6" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">4. EC2にアップ</summary><div class="indented"><ol type="1" id="22e4cd39-57d3-80f4-b307-c67c1462ca32" class="numbered-list" start="1"><li>先ほどのインスタンスページを開き、再度パブリックIPV4アドレスをコピー</li></ol><ol type="1" id="22e4cd39-57d3-80b1-9fb3-ea42c433eb7c" class="numbered-list" start="2"><li>.mdファイルをSCPコマンドでアップロード<br/>ここでのec2-user@の部分は使用してるOSによって異なる。AWS Linuxであればec2-userで固定。<br/></li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-80aa-a14e-f1c6180fe262" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">scp -i ~/Downloads/my-key.pem document.md ec2-user@ec2-11-22-33-44.ap-northeast-1.compute.amazonaws.com:/home/ec2-user</code></pre><ol type="1" id="22e4cd39-57d3-800b-89f4-d2cd72b7e215" class="numbered-list" start="3"><li>成功すると以下のように表示</li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-808c-b56b-d7ae03ba5c11" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">document.md                                 100% 6942    58.2KB/s   00:00</code></pre></div></details><p id="22e4cd39-57d3-8011-8934-dbb09d8c8514" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">5. EC2サーバにSSH接続して確認</summary><div class="indented"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-808d-8a9e-dda3b0128650" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">ssh -i ~/Downloads/my-key.pem ec2-user@ec2-11-22-33-44.ap-northeast-1.compute.amazonaws.com</code></pre><ol type="1" id="22e4cd39-57d3-809a-bbc3-f53fcecf7dc4" class="numbered-list" start="5"><li>実行に成功すると、先ほど同様に鳥が表示 🦅</li></ol><p id="22e4cd39-57d3-8016-ace3-dd769831fb74" class="">内容がアップされているかは、下記で確認可能</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-804f-9c88-cd4a0a872e65" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">ls -l
+cat document.md
+</code></pre><p id="22e4cd39-57d3-80db-b305-edd524894a27" class="">ただしこのままでは公開できない</p></div></details><p id="22e4cd39-57d3-80f6-886e-f4a3c785cb5f" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">6. HTML化〜アップロード</summary><div class="indented"><h2 id="22e4cd39-57d3-8049-aa4d-c7fdfeb6981e" class="">pandocを使用する場合</h2><ol type="1" id="22e4cd39-57d3-8050-992d-ee503c84d047" class="numbered-list" start="1"><li>pandocをインストール</li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-80f4-a5ad-d3feea07f7b6" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">wget https://github.com/jgm/pandoc/releases/download/3.2/pandoc-3.2-linux-amd64.tar.gz</code></pre><ol type="1" id="22e4cd39-57d3-80c0-ab86-c1d065cc99b2" class="numbered-list" start="2"><li>解凍</li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-8067-99de-f0547328b78d" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">tar -xvzf pandoc-3.2-linux-amd64.tar.gz</code></pre><ol type="1" id="22e4cd39-57d3-803a-a2cc-eceae0f0eb7f" class="numbered-list" start="3"><li>バイナリを移動</li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-801d-8ac1-e51144a5b21a" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">sudo cp -r pandoc-3.2/bin/* /usr/local/bin/</code></pre><ol type="1" id="22e4cd39-57d3-804e-b4c9-d612f92ae38a" class="numbered-list" start="4"><li>動作確認</li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-80f2-a215-c9b293c8c47e" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">pandoc --version</code></pre><p id="22e4cd39-57d3-8081-b02c-d38587e5e3ac" class="">こんな感じで出れば成功、pandocインストール完了。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-80ee-843b-f945a2b6091e" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">pandoc 3.2
+Features: +server +lua
+Scripting engine: Lua 5.4
+User data directory: /home/ec2-user/.local/share/pandoc
+Copyright (C) 2006-2024 John MacFarlane. Web: https://pandoc.org
+This is free software; see the source for copying conditions. There is no
+warranty, not even for merchantability or fitness for a particular purpose.</code></pre><ol type="1" id="22e4cd39-57d3-8071-80a4-e9874cbcb8c2" class="numbered-list" start="5"><li>pandocでHTMLに変換</li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-80ca-bd11-f5c59f7643a2" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">pandoc -s -f markdown -t html -o document.html document.md</code></pre><p id="22e4cd39-57d3-80ba-8e7f-c9bc440b5412" class="">ls -l した時に、document.html が作成されていれば成功</p><ol type="1" id="22e4cd39-57d3-80cf-b67c-f50baf040636" class="numbered-list" start="6"><li>Apache（httpd）をインストール・起動</li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-80cf-b494-e5274b07adc2" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">sudo yum install -y httpd
+sudo systemctl start httpd
+sudo systemctl enable httpd</code></pre><p id="22e4cd39-57d3-8036-8624-eac690fd5fab" class="">正常に起動するか確認</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-809d-8ec7-e1b4e09be807" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">sudo systemctl status httpd</code></pre><ol type="1" id="22e4cd39-57d3-806b-bc1c-ff2b0754132a" class="numbered-list" start="7"><li>公開ディレクトリへ</li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-802f-801b-eb84fd3dc9b7" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">sudo mv document.html /var/www/html/
+</code></pre><ol type="1" id="22e4cd39-57d3-804d-87cc-cf7bb70a3091" class="numbered-list" start="8"><li>接続確認</li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-8080-8d71-df0918d208ab" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">http://3.25.246.191/document.html</code></pre><figure id="22e4cd39-57d3-80b1-9ede-c3d2bdbd51fa" class="image"><a href="assets/img/image%203.png"><img style="width:432px" src="assets/img/image%203.png"/></a></figure><p id="22e4cd39-57d3-8075-bc15-d4bfa89ddff7" class="">表示されたのが確認できたが、画像のアップができていない</p><p id="22e4cd39-57d3-800d-917c-e706f4624d15" class="">
+</p></div></details><p id="22e4cd39-57d3-8086-9ccb-fcd3e587fd30" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">7. 画像のアップロード</summary><div class="indented"><p id="22e4cd39-57d3-80f4-9f39-cf8e0ca7fe5f" class="">手順4-2と同じ容量で、ログインしたEC2サーバーに画像がまとまった <code>assets/</code> フォルダをアップロードしたい…<strong>が、ここでハマる</strong></p><p id="22e4cd39-57d3-80a0-b72d-e905fab14867" class="">鍵の名前を変えたり、パーミッションを確認したりして、最終的にこの方法で通した</p><ol type="1" id="22e4cd39-57d3-80e3-98bf-c8246973428c" class="numbered-list" start="1"><li>まず、鍵のファイルパスが合っているか確認<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-80bd-912e-dca55796cec6" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">ls -l /Users/kaaisuzuki/Downloads/workspace/amazon-ec2-lapsy/lapsy.pem</code></pre><p id="22e4cd39-57d3-8075-a272-f9a8d348c586" class="">成功していると、以下のように表示</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-808d-8182-d4ecfaa4cd50" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">-r--------@ 1 kaaisuzuki  staff  1678 12 Jul 12:38 /Users/kaaisuzuki/Downloads/workspace/amazon-ec2-lapsy/clean.pem</code></pre></li></ol><ol type="1" id="22e4cd39-57d3-80ea-954e-e1817853ed8d" class="numbered-list" start="2"><li><code>assets</code> フォルダの確認<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-80e7-98ac-c1d74a3258b4" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">ls -ld /Users/kaaisuzuki/Downloads/workspace/amazon-ec2-lapsy/assets</code></pre><p id="22e4cd39-57d3-80d7-b04b-c199dd527bae" class="">成功していると、以下のように表示</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-80b7-bd92-fd0b92da0436" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">drwxr-xr-x@ 3 kaaisuzuki  staff  96 12 Jul 14:34 /Users/kaaisuzuki/Downloads/workspace/amazon-ec2-lapsy/assets</code></pre></li></ol><ol type="1" id="22e4cd39-57d3-8030-bcc0-e5b93bb0de37" class="numbered-list" start="3"><li>一時的にカレントディレクトリに移動する形で、以下のコマンドを実行<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-8094-91c2-fb4e5f7d5299" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">cd /Users/kaaisuzuki/Downloads/workspace/amazon-ec2-lapsy/
+scp -i clean.pem -r assets ec2-user@ec2-3-25-246-191.ap-southeast-2.compute.amazonaws.com:/home/ec2-user/</code></pre><p id="22e4cd39-57d3-80fa-9122-d67bb1092995" class="">ここで成功すると、以下のようにフォルダ中のファイルが全てアップロードされる</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-8047-9ea1-c6de8a8887e8" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">image7.jpg                                100%  484KB 542.3KB/s   00:00
+image6.jpg                                100%  520KB   2.1MB/s   00:00
+image4.png                                100%  163KB   1.4MB/s   00:00
+image5.jpg                                100%  125KB   1.0MB/s   00:00
+image1.jpg                                100%  351KB   1.5MB/s   00:00
+image2.jpg                                100%  939KB   3.6MB/s   00:00
+image3.png                                100%   47KB 411.4KB/s   00:00</code></pre></li></ol><p id="22e4cd39-57d3-80fd-9872-ce784a04c533" class="">
+</p><p id="22e4cd39-57d3-80cd-8d4a-ec6ab750af0d" class="">・・・できた！！！😭🎉</p><figure id="22e4cd39-57d3-80c5-b80d-c724dfd363b4" class="image"><a href="assets/img/image%204.png"><img style="width:681.9921875px" src="assets/img/image%204.png"/></a></figure><p id="22e4cd39-57d3-8024-8e6b-ed65e840fc94" class="">・・・しかしCSSがついていないのを忘れていた</p></div></details><p id="22e4cd39-57d3-803f-bb67-ca1784d29c3e" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">結局Notion fileをエクスポートしたものをアップした</summary><div class="indented"><p id="22e4cd39-57d3-8008-8842-f859fcf46472" class="">CSSスタイリングしないといけないじゃん、と気がついて途端にめんどくさくなったので、notionで書いていた元のファイルをエクスポートしてアップすることにしました😇</p><h3 id="22e4cd39-57d3-8027-8881-fc32a75c4e61" class="">エクスポートとアップの手順(Notionユーザー限定、だいぶ簡単)</h3><ol type="1" id="22e4cd39-57d3-8033-aa84-c93131c18850" class="numbered-list" start="1"><li>アプリの右上、⭐︎の横にある[…]をクリックすると「エクスポート」が出現するので、クリック</li></ol><ol type="1" id="22e4cd39-57d3-8066-8f2d-e99c594c043b" class="numbered-list" start="2"><li>ダウンロードしたものを解凍</li></ol><ol type="1" id="22e4cd39-57d3-8023-a632-c1fc7c061529" class="numbered-list" start="3"><li>名前を変更して移動<p id="22e4cd39-57d3-806c-975b-e2f2e6e9ec42" class="">タイトルは <code>日本語のタイトル 22o4iirhwe4flh39…</code> と吐き出されるので、<br/>名前を<br/><code>index.html</code>や <code>/assets/image.png</code> など単純化して、アップしたいディレクトリ内に移動</p></li></ol><ol type="1" id="22e4cd39-57d3-80a3-b956-d976ef99ea9c" class="numbered-list" start="4"><li>Localから、フォルダをEC2にアップロード<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-80f7-ae98-de859d67726f" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">scp -i /Users/kaaisuzuki/Downloads/workspace/amazon-ec2-lapsy/my-key.pem -r {file-name} ec2-user@&lt;EC2-IP&gt;:/home/ec2-user/(additional path if applicable)</code></pre></li></ol><ol type="1" id="22e4cd39-57d3-8057-9c46-f92d4daf54d2" class="numbered-list" start="5"><li>EC2にSSHログイン🦅して、アップロードしたファイルをApache公開ディレクトリに移動：<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="22e4cd39-57d3-8058-8fd3-fe1a0dd3c56c" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">ssh -i /Users/kaaisuzuki/Downloads/workspace/amazon-ec2-lapsy/my-key.pem ec2-user@&lt;EC2-IP&gt;
+sudo mv /home/ec2-user/(additional path if applicable) /var/www/html/</code></pre></li></ol></div></details><p id="22e4cd39-57d3-8098-ad33-f28442d4b352" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">振り返り、まとめ、気づき</summary><div class="indented"><ul id="22e4cd39-57d3-80dd-b53d-e521dbea6b6b" class="bulleted-list"><li style="list-style-type:disc">説明を聞き逃してしまっていたのでGitHub Pagesのmdファイルを公開していたところ、公開方法を間違っていた。</li></ul><ul id="22e4cd39-57d3-8055-97ac-e3b9c39ea4ba" class="bulleted-list"><li style="list-style-type:disc">ChatGPTのおすすめでmdファイルをコマンドラインからhtmlに変換したが、GitHubと違ってCSSがない and 画像アップが大変なことに気がついて挫折。<br/>EC2がいわゆるさくらのサーバーと同様Webサーバーのひとつであるということをちゃんと体で覚えることができたのは良かった<br/></li></ul><ul id="22e4cd39-57d3-80f5-aaaf-fc2c02f18f08" class="bulleted-list"><li style="list-style-type:disc">ターミナル上でEC2を動かしてるとだんだんEC2が重くなってくる？何度かBroken pipeして終了せざるを得ない場面に見舞われた。</li></ul><p id="22e4cd39-57d3-808a-86e4-ef684124b643" class="">
+</p></div></details><p id="22e4cd39-57d3-8058-aabe-c4a13f6fadf4" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">次のステップ</summary><div class="indented"><p id="22e4cd39-57d3-80bc-835e-fdeed60f4b86" class="">完全プライベート型、マルチブラウザ同期可能なTwitterライクのアプリ作成。md + pdfもしくはjsonファイルエクスポート可能で、できれば画像アップにも対応させたい</p><p id="22e4cd39-57d3-8018-b50c-f019122c10b0" class="">Vercel + Next.js + Firebase + S3 での作成を計画中。ついでにGitHub Actionsで自動化もさせたい(できれば)</p></div></details><p id="22e4cd39-57d3-802d-b8f5-d548b17e6a9e" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
