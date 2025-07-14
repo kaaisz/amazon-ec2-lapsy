@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.8.1/github-markdown.min.css" integrity="sha512-BrOPA520KmDMqieeM7XFe6a3u3Sb3F1JBaQnrIAmWg3EYrciJ+Qqe6ZcKCdfPv26rGcgTrJnZ/IdQEct8h3Zhw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link href="/assets/css/style.css" rel="stylesheet"></link>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.8.1/github-markdown-light.css" integrity="sha512-CxC9MO8FBaaq8vl9yaXHjgWd7uXqx3pWMSBP3daioTTI0gpXijlypuMV67NoE1bPYMzj7ZSNNS0o+jFFdFodgA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="/assets/css/style.css" rel="stylesheet" />
 
 # 自律的情報技術学習演習：作業の記録 Day-1〜中間課題
 
