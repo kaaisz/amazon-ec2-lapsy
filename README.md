@@ -174,59 +174,59 @@ EC2とは、仮想のコンピュータを1分単位で借りれるサービス
 
 1. ssh接続する / 解除する
 
-```
-ssh -i ~/path/to/key.pem ec2-user@YOUR_IP_ADDRESS
-```
+    ```
+    ssh -i ~/path/to/key.pem ec2-user@YOUR_IP_ADDRESS
+    ```
 
-1. そのまま接続を試みると、このような画面が表示
+2. そのまま接続を試みると、このような画面が表示
 
-```
-The authenticity of host '3.25.246.191 (3.25.246.191)' can't be established.
-ED25519 key fingerprint is SHA256:******************************.
-This key is not known by any other names.
-Are you sure you want to continue connecting (yes/no/[fingerprint])?
-```
+    ```
+    The authenticity of host '3.25.246.191 (3.25.246.191)' can't be established.
+    ED25519 key fingerprint is SHA256:******************************.
+    This key is not known by any other names.
+    Are you sure you want to continue connecting (yes/no/[fingerprint])?
+    ```
 
-1. `yes` とタイプすると、以下のようにパーミッション権限を求められる
+3. `yes` とタイプすると、以下のようにパーミッション権限を求められる
 
-```
-Warning: Permanently added '3.25.246.191' (ED25519) to the list of known hosts.
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-Permissions 0644 for '/path/to/key.pem' are too open.
-It is required that your private key files are NOT accessible by others.
-This private key will be ignored.
-Load key "/path/to/key.pem": bad permissions
-ec2-user@3.25.246.191: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
-```
+    ```
+    Warning: Permanently added '3.25.246.191' (ED25519) to the list of known hosts.
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    @         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    Permissions 0644 for '/path/to/key.pem' are too open.
+    It is required that your private key files are NOT accessible by others.
+    This private key will be ignored.
+    Load key "/path/to/key.pem": bad permissions
+    ec2-user@3.25.246.191: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+    ```
 
-1. そのため、以下のコマンドでパーミッション権限を変更
+4. そのため、以下のコマンドでパーミッション権限を変更
 
-```
-chmod 600 ~/path/to/key.pem
-```
+    ```
+    chmod 600 ~/path/to/key.pem
+    ```
 
-1. もう一度1. のコマンドを実行。
+   1. もう一度1. のコマンドを実行。
 以下のような結果が返ってくれば成功
 
-<aside>
-💡これがログイン成功の合図なので今後も頻繁に出てくる。以下、ログイン成功 = 🦅 として表示
-</aside>
+    <aside>
+    💡これがログイン成功の合図なので今後も頻繁に出てくる。以下、ログイン成功 = 🦅 として表示
+    </aside>
 
-```
-   ,     #_
-   ~\_  ####_        Amazon Linux 2023
-  ~~  \_#####\
-  ~~     \###|
-  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
-   ~~       V~' '->
-    ~~~         /
-      ~~._.   _/
-         _/ _/
-       _/m/'
-[ec2-user@ip-000-00-0-000 ~]$
-```
+    ```
+    ,     #_
+    ~\_  ####_        Amazon Linux 2023
+    ~~  \_#####\
+    ~~     \###|
+    ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+    ~~       V~' '->
+        ~~~         /
+        ~~._.   _/
+            _/ _/
+        _/m/'
+    [ec2-user@ip-000-00-0-000 ~]$
+    ```
 
 <a id="anchor5"></a>
 
@@ -234,16 +234,16 @@ chmod 600 ~/path/to/key.pem
 
 1. 先ほどのインスタンスページを開き、再度パブリックIPV4アドレスをコピー
 2. .mdファイルをSCPコマンドでアップロード
-ここでのec2-user@の部分は使用してるOSによって異なる。AWS Linuxであればec2-userで固定。
-```
-scp -i ~/path/to/key.pem document.md ec2-user@ec2-11-22-33-44.ap-northeast-1.compute.amazonaws.com:/home/ec2-user
-```
+    ここでのec2-user@の部分は使用してるOSによって異なる。AWS Linuxであればec2-userで固定。
+    ```
+    scp -i ~/path/to/key.pem document.md ec2-user@ec2-11-22-33-44.ap-northeast-1.compute.amazonaws.com:/home/ec2-user
+    ```
 
 3. 成功すると以下のように表示
 
-```
-document.md                                 100% 6942    58.2KB/s   00:00
-```
+    ```
+    document.md                                 100% 6942    58.2KB/s   00:00
+    ```
 
 <a id="anchor6"></a>
 
@@ -253,14 +253,12 @@ document.md                                 100% 6942    58.2KB/s   00:00
 ssh -i ~/path/to/key.pem ec2-user@ec2-11-22-33-44.ap-northeast-1.compute.amazonaws.com
 ```
 
-1. 実行に成功すると、先ほど同様に鳥が表示 🦅
-
+実行に成功すると、先ほど同様に鳥が表示 🦅
 内容がアップされているかは、下記で確認可能
 
 ```
 ls -l
 cat document.md
-
 ```
 
 ただしこのままでは公開できない
@@ -273,73 +271,73 @@ cat document.md
 
 1. pandocをインストール
 
-```
-wget https://github.com/jgm/pandoc/releases/download/3.2/pandoc-3.2-linux-amd64.tar.gz
-```
+     ```
+     wget https://github.com/jgm/pandoc/releases/download/3.2/pandoc-3.2-linux-amd64.tar.gz
+     ```
 
 2. 解凍
 
-```
-tar -xvzf pandoc-3.2-linux-amd64.tar.gz
-```
+    ```
+    tar -xvzf pandoc-3.2-linux-amd64.tar.gz
+    ```
 
 3. バイナリを移動
 
-```
-sudo cp -r pandoc-3.2/bin/* /usr/local/bin/
-```
+    ```
+    sudo cp -r pandoc-3.2/bin/* /usr/local/bin/
+    ```
 
 4. 動作確認
 
-```
-pandoc --version
-```
+    ```
+    pandoc --version
+    ```
 
-こんな感じで出れば成功、pandocインストール完了。
+    こんな感じで出れば成功、pandocインストール完了。
 
-```
-pandoc 3.2
-Features: +server +lua
-Scripting engine: Lua 5.4
-User data directory: /home/ec2-user/.local/share/pandoc
-Copyright (C) 2006-2024 John MacFarlane. Web: https://pandoc.org
-This is free software; see the source for copying conditions. There is no
-warranty, not even for merchantability or fitness for a particular purpose.
-```
+    ```
+    pandoc 3.2
+    Features: +server +lua
+    Scripting engine: Lua 5.4
+    User data directory: /home/ec2-user/.local/share/pandoc
+    Copyright (C) 2006-2024 John MacFarlane. Web: https://pandoc.org
+    This is free software; see the source for copying conditions. There is no
+    warranty, not even for merchantability or fitness for a particular purpose.
+    ```
 
 5. pandocでHTMLに変換
 
-```
-pandoc -s -f markdown -t html -o document.html document.md
-```
+    ```
+    pandoc -s -f markdown -t html -o document.html document.md
+    ```
 
-ls -l した時に、document.html が作成されていれば成功
+    ls -l した時に、document.html が作成されていれば成功
 
 6. Apache（httpd）をインストール・起動
 
-```
-sudo yum install -y httpd
-sudo systemctl start httpd
-sudo systemctl enable httpd
-```
+    ```
+    sudo yum install -y httpd
+    sudo systemctl start httpd
+    sudo systemctl enable httpd
+    ```
 
-正常に起動するか確認
+    正常に起動するか確認
 
-```
-sudo systemctl status httpd
-```
+    ```
+    sudo systemctl status httpd
+    ```
 
 7. 公開ディレクトリへ
 
-```
-sudo mv document.html /var/www/html/
-```
+    ```
+    sudo mv document.html /var/www/html/
+    ```
 
 8. 接続確認
 
-```
-http://3.25.246.191/document.html
-```
+    ```
+    http://3.25.246.191/document.html
+    ```
 
 が、これでは画像のアップができていない
 
