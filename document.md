@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.8.1/github-markdown-light.css" integrity="sha512-CxC9MO8FBaaq8vl9yaXHjgWd7uXqx3pWMSBP3daioTTI0gpXijlypuMV67NoE1bPYMzj7ZSNNS0o+jFFdFodgA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link href="/assets/css/style.css" rel="stylesheet" />
 
 
@@ -48,10 +47,10 @@ ssh -i /path/to/key.pem ec2-user@ec2-11-22-33-44.ap-northeast-1.compute.amazonaw
 scp -i /path/to/key.pem {file-name} ec2-user@ec2-11-22-33-44.ap-northeast-1.compute.amazonaws.com:/home/ec2-user/
 ```
 
-`-r` で既存ファイルおよびディレクトリのReplace
+`-r` でディレクトリのアップロード
 
 ```
-scp -i /path/to/key.pem -r {file-name} ec2-user@ec2-11-22-33-44.ap-northeast-1.compute.amazonaws.com:/home/ec2-user/
+scp -i /path/to/key.pem -r {directory-name} ec2-user@ec2-11-22-33-44.ap-northeast-1.compute.amazonaws.com:/home/ec2-user/
 ```
 
 <a id="anchor1-3"></a>
