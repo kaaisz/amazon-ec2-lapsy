@@ -395,8 +395,9 @@ Password: `password`
 
 ### 1. GitHub リポジトリ作成
 FrontとBackに分ける。FrontをVercelに繋ぐので後でRepo名を変えるかも
-- Front: 
-- Back: 
+
+- Front: [https://github.com/kaaisz/lapsy-front](https://github.com/kaaisz/lapsy-front)
+- Back: [https://github.com/kaaisz/lapsy-back](https://github.com/kaaisz/lapsy-back)
 
 <a id="anchor6-2-2"></a>
 
